@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Group Influencer Oficial</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#05060a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Fundo Neon */
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+    background:
+    radial-gradient(circle at top left,#0d1b3d 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#12214d 0%,transparent 30%),
+    radial-gradient(circle at center,#081120 0%,#040507 70%);
+}
+
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.15;
+    animation:float 10s infinite alternate;
+}
+
+.glow1{
+    background:#3d5afe;
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+    background:#00e5ff;
+    bottom:-150px;
+    right:-100px;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0px) translateX(0px);
+    }
+    to{
+        transform:translateY(40px) translateX(20px);
+    }
+}
+
+/* Navbar */
+
+nav{
+    width:100%;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    backdrop-filter:blur(15px);
+    background:rgba(0,0,0,0.25);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    z-index:999;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:#fff;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#4cc9ff;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#ddd;
+    transition:.3s;
+    font-size:15px;
+}
+
+nav ul li a:hover{
+    color:#4cc9ff;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:140px 8% 80px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:1000px;
+    animation:fadeUp 1s ease;
+}
+
+.hero h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:20px;
+    font-weight:800;
+    background:linear-gradient(to right,#ffffff,#4cc9ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    color:#b5b5b5;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.btns{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 35px;
+    border-radius:14px;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:600;
+}
+
+.btn-primary{
+    background:linear-gradient(45deg,#1f6fff,#00b7ff);
+    color:white;
+    box-shadow:0 0 25px rgba(0,183,255,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 40px rgba(0,183,255,.45);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;
+    background:rgba(255,255,255,.04);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.08);
+}
+
+/* Sections */
+
+section{
+    padding:90px 8%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.title h2{
+    font-size:44px;
+    margin-bottom:15px;
+}
+
+.title p{
+    color:#aaa;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:24px;
+    padding:35px;
+    transition:.4s;
+    backdrop-filter:blur(12px);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#4cc9ff;
+    box-shadow:0 0 30px rgba(76,201,255,.12);
+}
+
+.card h3{
+    margin-bottom:18px;
+    font-size:22px;
+}
+
+.card p{
+    color:#bdbdbd;
+    line-height:1.8;
+}
+
+/* Tabs */
+
+.tabs{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:40px;
+}
+
+.tab-btn{
+    padding:14px 28px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.06);
+    color:white;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.tab-btn.active,
+.tab-btn:hover{
+    background:linear-gradient(45deg,#1f6fff,#00b7ff);
+}
+
+.tab-content{
+    display:none;
+}
+
+.tab-content.active{
+    display:block;
+    animation:fadeUp .5s ease;
+}
+
+.tutorial-box{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:24px;
+    padding:40px;
+    line-height:2;
+}
+
+.tutorial-box h3{
+    margin-bottom:25px;
+    font-size:28px;
+}
+
+.tutorial-box ul{
+    margin-left:20px;
+}
+
+.tutorial-box a{
+    color:#4cc9ff;
+    text-decoration:none;
+}
+
+.tutorial-box a:hover{
+    text-decoration:underline;
+}
+
+/* Discord */
+
+.discord{
+    text-align:center;
+}
+
+.discord-box{
+    background:linear-gradient(45deg,#1f6fff,#00b7ff);
+    padding:50px;
+    border-radius:28px;
+    box-shadow:0 0 40px rgba(0,183,255,.18);
+}
+
+.discord-box h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.discord-box p{
+    margin-bottom:30px;
+}
+
+/* Footer */
+
+footer{
+    padding:40px 8%;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.05);
+    color:#9e9e9e;
+}
+
+/* Animations */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0px);
+    }
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:46px;
+}
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg">
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+</div>
+
+<nav>
+    <div class="logo">Group <span>Influencer</span></div>
+
+    <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#requisitos">Requisitos</a></li>
+        <li><a href="#tutorials">Tutoriais</a></li>
+        <li><a href="#discord">Discord</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            A Comunidade dos Criadores do Futuro
+        </h1>
+
+        <p>
+            A Group Influencer é uma comunidade criada com o objetivo de reunir criadores de conteúdo, streamers, influenciadores digitais e pessoas que desejam crescer no mundo online. Nosso foco é desenvolver talentos, criar oportunidades e fortalecer uma rede de apoio entre membros que compartilham o mesmo sonho: crescer, monetizar e se destacar.
+        </p>
+
+        <div class="btns">
+
+            <a href="SEU-LINK-DISCORD" class="btn btn-primary">
+                Entrar no Discord
+            </a>
+
+            <a href="#tutorials" class="btn btn-secondary">
+                Ver Tutoriais
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="sobre">
+
+    <div class="title">
+        <h2>Sobre a Comunidade</h2>
+        <p>Profissional • Empresarial • Networking • Crescimento</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Networking</h3>
+
+            <p>
+                Conecte-se com streamers, influenciadores e criadores de conteúdo de diferentes plataformas como Twitch, YouTube, TikTok e Kick.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Suporte Real</h3>
+
+            <p>
+                Aqui você encontra suporte, divulgação, networking e estratégias reais para crescimento profissional nas plataformas digitais.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Comunidade Ativa</h3>
+
+            <p>
+                A comunidade é ativa, organizada e voltada tanto para iniciantes quanto para criadores experientes que querem levar seu conteúdo para outro nível.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="requisitos">
+
+    <div class="title">
+        <h2>Requisitos para Entrar</h2>
+        <p>Faça parte do movimento Group Influencer</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>✔ Crescimento</h3>
+            <p>Ter interesse em crescer como criador de conteúdo.</p>
+        </div>
+
+        <div class="card">
+            <h3>✔ Respeito</h3>
+            <p>Respeitar todos os membros da comunidade.</p>
+        </div>
+
+        <div class="card">
+            <h3>✔ Atividade</h3>
+            <p>Ser ativo, participar e fortalecer o grupo.</p>
+        </div>
+
+        <div class="card">
+            <h3>✔ Divulgação</h3>
+            <p>Divulgar e apoiar os canais oficiais da comunidade.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="tutorials">
+
+    <div class="title">
+        <h2>Tutoriais & Downloads</h2>
+        <p>Aprenda do zero ao profissional</p>
+    </div>
+
+    <div class="tabs">
+
+        <button class="tab-btn active" onclick="openTab('streamer')">
+            Streamer
+        </button>
+
+        <button class="tab-btn" onclick="openTab('setup')">
+            Setup
+        </button>
+
+        <button class="tab-btn" onclick="openTab('gtafivem')">
+            GTA V & FiveM
+        </button>
+
+        <button class="tab-btn" onclick="openTab('mta')">
+            GTA SA & MTA
+        </button>
+
+    </div>
+
+    <!-- STREAMER -->
+
+    <div class="tab-content active" id="streamer">
+
+        <div class="tutorial-box">
+
+            <h3>Como Ser Streamer Profissional</h3>
+
+            <ul>
+                <li>Escolha sua plataforma: Twitch, Kick ou YouTube.</li>
+                <li>Crie identidade visual profissional.</li>
+                <li>Use overlays animadas e webcam.</li>
+                <li>Faça lives com frequência.</li>
+                <li>Interaja constantemente com o chat.</li>
+                <li>Divulgue cortes no TikTok e Instagram.</li>
+                <li>Aprenda marketing digital.</li>
+                <li>Use OBS Studio para transmissão.</li>
+                <li>Crie comunidade no Discord.</li>
+                <li>Transforme seguidores em comunidade fiel.</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- SETUP -->
+
+    <div class="tab-content" id="setup">
+
+        <div class="tutorial-box">
+
+            <h3>Materiais Necessários</h3>
+
+            <h4>Equipamentos Físicos</h4>
+
+            <ul>
+                <li>PC Gamer</li>
+                <li>Microfone USB</li>
+                <li>Webcam HD</li>
+                <li>Headset Gamer</li>
+                <li>Internet Fibra</li>
+                <li>Monitor 144Hz</li>
+            </ul>
+
+            <br>
+
+            <h4>Programas para Baixar</h4>
+
+            <ul>
+                <li><a href="https://obsproject.com/pt-br" target="_blank">OBS Studio</a></li>
+                <li><a href="https://discord.com/" target="_blank">Discord</a></li>
+                <li><a href="https://streamlabs.com/" target="_blank">Streamlabs</a></li>
+                <li><a href="https://www.adobe.com/br/products/photoshop.html" target="_blank">Photoshop</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- GTA V -->
+
+    <div class="tab-content" id="gtafivem">
+
+        <div class="tutorial-box">
+
+            <h3>Como Baixar GTA V e FiveM</h3>
+
+            <ul>
+                <li>
+                    Compre ou baixe o GTA V:
+                    <br>
+                    Steam:
+                    <a href="https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/" target="_blank">
+                        GTA V Steam
+                    </a>
+                    <br>
+                    Epic Games:
+                    <a href="https://store.epicgames.com/pt-BR/p/grand-theft-auto-v" target="_blank">
+                        GTA V Epic Games
+                    </a>
+                </li>
+
+                <br>
+
+                <li>
+                    Baixe o FiveM:
+                    <br>
+                    <a href="https://fivem.net/" target="_blank">
+                        https://fivem.net/
+                    </a>
+                </li>
+
+                <br>
+
+                <li>
+                    Instale o GTA V completamente.
+                </li>
+
+                <li>
+                    Execute o instalador do FiveM.
+                </li>
+
+                <li>
+                    Escolha a pasta do GTA V.
+                </li>
+
+                <li>
+                    Aguarde baixar os arquivos adicionais.
+                </li>
+
+                <li>
+                    Abra o FiveM e conecte-se ao servidor desejado.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- MTA -->
+
+    <div class="tab-content" id="mta">
+
+        <div class="tutorial-box">
+
+            <h3>Como Baixar GTA San Andreas e MTA</h3>
+
+            <p>
+
+                1° - Baixe o Winrar:
+                <br>
+                <a href="https://www.win-rar.com/predownload.html" target="_blank">
+                    https://www.win-rar.com/predownload.html
+                </a>
+
+                <br><br>
+
+                2° - Você vai baixar o GTA SAN ANDREAS através desse link:
+                <br>
+
+                MediaFire:
+                <br>
+
+                <a href="https://bit.ly/2RrhcCc" target="_blank">
+                    GTA San Andreas
+                </a>
+
+                <br><br>
+
+                3° - Depois de extrair, irá vim uma pasta "GTA San Andreas", copie e cole em:
+                <br>
+                DISCO LOCAL (C:) → ARQUIVOS DE PROGRAMAS
+
+                <br><br>
+
+                4° - Após isso, baixe o MTA 1.6:
+                <br>
+
+                <a href="https://multitheftauto.com/" target="_blank">
+                    https://multitheftauto.com/
+                </a>
+
+                <br><br>
+
+                5° - Execute o instalador do MTA e selecione a pasta do GTA SA.
+
+                <br><br>
+
+                6° - Finalizado! Agora é só entrar na cidade através do IP do servidor.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="discord" class="discord">
+
+    <div class="discord-box">
+
+        <h2>Entre na Group Influencer</h2>
+
+        <p>
+            Compartilhe o Discord da Group Influencer com seus amigos, convide novos criadores e ajude a fortalecer essa comunidade. Quanto maior o grupo, maiores são as oportunidades para todos os membros.
+        </p>
+
+        <a href="SEU-LINK-DISCORD" class="btn btn-secondary">
+            Discord Oficial
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Group Influencer Oficial - Todos os direitos reservados
+</footer>
+
+<script>
+
+const buttons = document.querySelectorAll('.tab-btn');
+const tabs = document.querySelectorAll('.tab-content');
+
+function openTab(tabId){
+
+    tabs.forEach(tab=>{
+        tab.classList.remove('active');
+    });
+
+    buttons.forEach(btn=>{
+        btn.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+
+    event.target.classList.add('active');
+}
+
+</script>
+
+</body>
+</html>
